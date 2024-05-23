@@ -65,7 +65,7 @@ docker system prune -af
 
 # Add a delay to ensure Docker images and containers are properly deleted
 echo "Waiting for Docker cleanup to complete..."
-sleep 10
+sleep 30
 
 # Build and run Docker containers using Docker Compose
 echo "Building and running Docker containers using Docker Compose..."
