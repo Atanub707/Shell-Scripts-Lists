@@ -66,5 +66,14 @@ CONTAINER_NAME="nodeapp_container" # Replace with your desired container name
 echo "Running Docker container..."
 docker run -d -p 3000:3000 --name $CONTAINER_NAME $IMAGE_NAME
 # Additional Docker run options can be added as needed
+# For example, to mount a volume, you could add: -v /host/path:/container/path
+
+# List all Docker images
+echo "Listing all Docker images..."
+docker images
+
+# List all Docker containers (both running and stopped)
+echo "Listing all Docker containers..."
+docker ps -a
 
 echo "Automation script completed. Please log out and log back in for the Docker group changes to take effect."
