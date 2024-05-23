@@ -56,6 +56,9 @@ else
     git -C $CLONE_DIR pull
 fi
 
+# Navigate to the directory containing the docker-compose.yml file
+cd $CLONE_DIR
+
 # Build and run Docker containers using Docker Compose
 echo "Building and running Docker containers using Docker Compose..."
 docker-compose up -d --build
