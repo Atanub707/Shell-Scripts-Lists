@@ -59,9 +59,13 @@ fi
 # Navigate to the directory containing the docker-compose.yml file
 cd $CLONE_DIR
 
+# Prune Docker images and containers
+echo "Pruning Docker system..."
+docker system prune -af
+
 # Build and run Docker containers using Docker Compose
 echo "Building and running Docker containers using Docker Compose..."
-docker-compose up -d --build
+docker-compose up -d
 
 # List all Docker images
 echo "Listing all Docker images..."
