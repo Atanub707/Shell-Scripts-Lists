@@ -46,7 +46,7 @@ docker-compose --version
 
 # Clone the repository (replace with your actual repository URL)
 REPO_URL="https://github.com/Atanub707/Node-Hello-Dockerfile"
-CLONE_DIR="/home/$USER/Node-Hello-Dockerfile"
+CLONE_DIR="/home/src/Node-Hello-Dockerfile"
 
 if [ ! -d "$CLONE_DIR" ]; then
     echo "Cloning the repository..."
@@ -58,7 +58,7 @@ fi
 
 # Build and run Docker containers using Docker Compose
 echo "Building and running Docker containers using Docker Compose..."
-docker-compose up -d
+docker-compose up -d --build
 
 # List all Docker images
 echo "Listing all Docker images..."
