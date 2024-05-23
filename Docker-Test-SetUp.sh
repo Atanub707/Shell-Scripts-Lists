@@ -56,17 +56,9 @@ else
     git -C $CLONE_DIR pull
 fi
 
-# Build Docker image
-IMAGE_NAME="nodeapp/v1" # Replace with your desired image name
-echo "Building Docker image..."
-docker build -t $IMAGE_NAME $CLONE_DIR
-
-# Run Docker container
-CONTAINER_NAME="nodeapp_container" # Replace with your desired container name
-echo "Running Docker container..."
-docker run -d -p 3000:3000 --name $CONTAINER_NAME $IMAGE_NAME
-# Additional Docker run options can be added as needed
-# For example, to mount a volume, you could add: -v /host/path:/container/path
+# Build and run Docker containers using Docker Compose
+echo "Building and running Docker containers using Docker Compose..."
+docker-compose up -d
 
 # List all Docker images
 echo "Listing all Docker images..."
