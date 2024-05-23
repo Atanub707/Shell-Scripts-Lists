@@ -65,7 +65,7 @@ docker system prune -af
 
 # Build and run Docker containers using Docker Compose
 echo "Building and running Docker containers using Docker Compose..."
-docker-compose up -d
+docker-compose up -d --build
 
 # List all Docker images
 echo "Listing all Docker images..."
