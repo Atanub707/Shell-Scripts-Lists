@@ -46,7 +46,7 @@ docker-compose --version
 
 # Clone the repository (replace with your actual repository URL)
 REPO_URL="https://github.com/Atanub707/Node-Hello-Dockerfile"
-CLONE_DIR="/home/src/Node-Hello-Dockerfile"
+CLONE_DIR="/home/ubuntu/Node-Hello-Dockerfile"
 
 if [ ! -d "$CLONE_DIR" ]; then
     echo "Cloning the repository..."
