@@ -1,0 +1,31 @@
+# Update and upgrade system
+echo "Updating and upgrading system..."
+sudo apt-get update
+sudo apt-get upgrade -y
+
+# Install dependencies for Docker
+echo "Installing dependencies..."
+sudo apt-get install ca-certificates curl gnupg git -y
+
+# Install Docker
+sudo apt-get update
+sudo apt-get install docker.io -y
+sudo usermod -aG docker ubuntu   #my case is ubuntu
+newgrp docker
+sudo chmod 777 /var/run/docker.sock
+
+# Install Sonarqube 
+docker run -d --name sonar -p 9000:9000 sonarqube:lts-community
+
+#install trivy
+sudo apt-get install wget apt-transport-https gnupg lsb-release -y
+wget -qO - https://aquasecurity.github.io/trivy-repo/deb/public.key | gpg --dearmor | sudo tee /usr/share/keyrings/trivy.gpg > /dev/null
+echo "deb [signed-by=/usr/share/keyrings/trivy.gpg] https://aquasecurity.github.io/trivy-repo/deb $(lsb_release -sc) main" | sudo tee -a /etc/apt/sources.list.d/trivy.list
+sudo apt-get update
+sudo apt-get install trivy -y
+
+# Verify Docker, SonarQube, Trivy installation
+echo "Docker, SonarQube, Trivy installation verification:"
+docker --version
+sonarqube --version
+trivy --version
